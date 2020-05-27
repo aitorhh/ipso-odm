@@ -22,6 +22,25 @@ When multiple file names are given, the output of each conversion is saved to `o
 
 `node ipso2odm samples/*.xml`
 
+To convert all the available IPSO objects, for example, available in the latest
+leshan release:
+
+```
+mkdir samples/leshan-models
+
+wget https://github.com/eclipse/leshan/archive/master.zip
+unzip master.zip
+cp leshan-master/leshan-server-demo/src/main/resources/models/* ./samples/leshan-models
+rm master.zip
+rm -rf leshan-master
+
+node ipso2odm samples/leshan-models/*.xml
+
+mv odmobject-*.sdf.json samples/leshan-models/
+
+```
+
+
 ## OneDM SDF to IPSO converter
 
 Usage: `node odm2ipso [file-name]`
